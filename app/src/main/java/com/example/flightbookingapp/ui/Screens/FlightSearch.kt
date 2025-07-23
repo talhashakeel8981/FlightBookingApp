@@ -19,6 +19,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 @Composable
 fun FlightSearch()
@@ -35,9 +36,14 @@ fun FlightSearch()
     {
         Row (
             modifier = Modifier
-                .padding(start = 20.dp,)
+                .padding(start = 20.dp, top = 50.dp)
         ){
-            Text(text = "Where You\n want to Travel?")
+            Text(text = "Where You\nwant to Travel?",
+                color = Color(red = 216, green = 236, blue = 235),
+                fontSize = 30.sp
+
+            )
+
         }
         Card(
 
@@ -83,8 +89,6 @@ fun FlightSearch()
                 }
 
             }
-
-
 
         }
     }
