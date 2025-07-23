@@ -46,8 +46,8 @@ fun FirstScreen() {
         ){
             Image(
                 painter = painterResource(id = R.drawable.homescreenlogo),
-                contentDescription = "home screen",
-//                modifier = Modifier.size(100.dp)
+                contentDescription = "",
+                modifier = Modifier.size(100.dp)
 
             )
 //            Spacer(modifier = Modifier.height(4.dp))
@@ -57,27 +57,29 @@ fun FirstScreen() {
                 color=Color(220,255,255)
             )
         }
-Row (
-modifier = Modifier
-    .padding(start = 20.dp,top = 500.dp, end = 25.dp),
+        Row(
+            modifier = Modifier
+                .padding(top = 500.dp)
+                .padding(end = 25.dp)
+                .padding(start = 15.dp)
 
-)
-{
-    Text(
-        text = "Find",
-        fontSize = 45.sp
-    )
-Image(
-    painter = painterResource(id = R.drawable.homescreenlogo),
-    contentDescription = "home screen",
-    modifier = Modifier.size(50.dp)
+        ) {
+            Text(
+                text = "Find",
+                fontSize = 45.sp
+            )
+            Image(
+                painter = painterResource(id = R.drawable.homescreenlogo),
+                contentDescription = "",
+                modifier = Modifier.size(40.dp)
 
-)
-    Text(
-        text = "Flights to the Places You Love Most",
-        fontSize = 45.sp
-    )
-}
+            )
+//            Text(
+//                text = "Flights to the Places You Love Most",
+//                fontSize = 45.sp
+//            )
+        }
+
 
 
         // Sign Up Button with Apple Icon
@@ -156,6 +158,18 @@ Image(
             )
 
 
+
+
         }
+        Text(
+            text = "Register",
+            color = Color(red = 186, green =221 , blue =214 ),
+            fontSize = 20.sp,
+            fontWeight = FontWeight.Bold,
+
+            modifier = Modifier.clickable {
+                println("Text clicked!")
+            }
+        )
     }
 }
