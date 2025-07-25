@@ -28,6 +28,7 @@ import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRow
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -97,21 +98,35 @@ fun FlightSearch()
                 .padding(top = 200.dp)
                 .padding(start = 15.dp, end = 15.dp)
                 .fillMaxWidth()
-                .height(300.dp)
+                .height(325.dp)
+
             ,
 
             shape = RoundedCornerShape(25.dp),
-            elevation = CardDefaults.cardElevation(16.dp)
+            colors = CardDefaults.cardColors(
+                containerColor = Color(0xFFFDFFFF) // Light white-blue
+                // or simply Color.White
+            ),
+            elevation = CardDefaults.cardElevation(50.dp)
         ) {
             Column (
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(10.dp)
-            ){
+                    .fillMaxWidth()
+
+
+
+                ) {
                 // 🔁 Tab Row for One Way / Round Trip
                 TabRow(
+                    modifier = Modifier
+                        .padding(16.dp)
+                        .clip(RoundedCornerShape(20.dp)) // Makes the full TabRow rounded
+                        .background(Color(255,255,255)), // Background of the full TabRow
+//                    rgb(255,255,255)
                     selectedTabIndex = selectedTabIndex.value,
-                    contentColor = Color.Black
+                    contentColor = Color.White,
                 ) {
                     tabTitles.forEachIndexed { index, title ->
                         Tab(
@@ -124,14 +139,19 @@ fun FlightSearch()
 
 
                 TextField(
-
+modifier = Modifier
+    .fillMaxWidth(),
                     value = departure.value,
                     onValueChange = {departure.value=(it)},
                     label = { Text(text = "Enter Country") }
 
 
                 )
-                TextField(value = arrival.value,
+                TextField(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+
+                    value = arrival.value,
                     onValueChange = {arrival.value=(it)},
                     label = { Text(text = "To") }
 
@@ -144,14 +164,16 @@ fun FlightSearch()
                     TextField(
 
                         modifier = Modifier
-                            .width(165.dp),
+//                            .fillMaxWidth()
+                            .width(172.dp),
+
                         value = date.value,
                         onValueChange = {date.value=(it)},
                         label = { Text(text = "Date") }
                     )
                     TextField(
                         modifier = Modifier
-                            .width(165.dp),
+                            .width(1712.dp),
 
 
                         value = persons.value,
@@ -183,18 +205,22 @@ fun FlightSearch()
 
 
         Row(
+
+
             modifier = Modifier
-                .padding(start = 12.dp, end = 12.dp, top = 520.dp)
+                .padding(start = 12.dp, end = 12.dp, top = 540.dp)
                 .fillMaxWidth() // Important: makes the row expand full width
         ) {
             Text(
-                text = "Last Trip"
+                text = "Last Trip",
+                color=Color.White
             )
 
             Spacer(modifier = Modifier.weight(1f)) // Pushes "See All" to the end
 
             Text(
-                text = "See All"
+                text = "See All",
+                color=Color.White
             )
         }
 
